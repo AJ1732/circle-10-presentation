@@ -90,3 +90,9 @@ transition: slide-up
 
 src: ./pages/page-12.md
 ---
+
+---
+transition: slide-up
+
+src: ./pages/page-13.md
+---
