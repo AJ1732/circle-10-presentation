@@ -1,20 +1,29 @@
-# Welcome to Slidev
+# Circle 10
 
-Presentation slides for developers
+Presentation slides
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Press Space for next page <carbon:arrow-right />
 </div>
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
+<div class="abs-br w-full m-6 text-xl">
+  <script setup>
+    const teamMembers = ["Ejemen Iboi", "Member 2", "Member3", "Member4", "Member5", "Member6", "Member7", "Member8", "Member9"]
+  </script>
+
+  <ul class="flex flex-wrap justify-center items-center gap-4">
+     <li v-for="item in teamMembers" :key="item">
+      {{ item }}
+    </li>
+  </ul>
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+<style>
+  ul {
+    list-style: none;
+
+    li {
+      font-size: 0.875rem;
+    }
+  }
+</style>
