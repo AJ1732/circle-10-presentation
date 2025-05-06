@@ -30,6 +30,7 @@ layoutClass: gap-16
 
 src: ./pages/page-2.md
 ---
+---
 
 ---
 transition: slide-up
