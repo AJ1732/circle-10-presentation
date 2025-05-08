@@ -1,13 +1,16 @@
 # Month 1 Week 1
-# Return Statement in JavaScript
----
+
+<br />
+
+## Return Statement in JavaScript
+
+<br />
+
 ## What is `Return Statement`?
 
 - Tell the function to stop executing and return a value to the caller.
 - Sends a value back to the caller when the function is being called.
 - If `return` is not used, the function will automatically return `undefined` by default.
-
----
 
 ## Key Points
 
