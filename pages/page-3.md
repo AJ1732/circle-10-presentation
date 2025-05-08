@@ -103,11 +103,34 @@ console.log(combined); // Output: [1, 2, 3, 4]
 ```
 
 - It looks the same as the rest parameter (...), but its purpose is the opposite:
-  - Rest Parameter collects, _when at the end of the function._
+  - Rest Parameter collects, when at the end of the function.
   - Spread Operator expands _occurs in a function call_.
-- Similaries include; - Used to clone iterable data structures .eg strings, objects, arrays - uses `...`
-</div>
-</div>
+  </div>
+  </div>
+
+<p v-click="3" class="-mt-4">
+
+- Similaries include; Used to clone iterate data structures .eg strings, objects, arrays - uses `...`
+</p>
+
+---
+
+## Callback Functions
+
+Simply put, a function called by another function
+
+```js
+function callbackEx(message, yesFn, noFn) {
+  let result = confirm(message);
+  if (result) yesFn();
+  noFn();
+}
+callBackEx(
+  "Do you have a boyfriend",
+  () => console.log("yes"),
+  () => console.log("no")
+);
+```
 
 <!-- STYLES -->
 <style>
