@@ -72,17 +72,19 @@ console.log(arr1); // Output: ['a', 'b', 'c'];
 
 ### Rest Parameters
 
-- Gathers multiple values into a single array
-- Used in **function parameters** with `...`(spread operator)
-- It's useful when you don’t know how many arguments a function will receive.
+<ul>
+  <li>Gathers multiple values into a single array</li>
+  <li>It's useful when you don’t know how many arguments a function will receive.</li>
+  <li>Used in <strong>function parameters</strong> with <pre>...</pre>(spread operator)</li>
+</ul>
 
-  ```js
-  function printAfter2(first, second, ...rest) {
-    console.log(rest);
-  }
-  printAfter2("Musa");
-  // Output: ["Musa"]
-  ```
+```js
+function printAfter2(first, second, ...rest) {
+  console.log(rest);
+}
+printAfter2("Musa");
+// Output: ["Musa"]
+```
 
   </div>
 
@@ -102,16 +104,15 @@ const combined = [...first, ...second];
 console.log(combined); // Output: [1, 2, 3, 4]
 ```
 
-- It looks the same as the rest parameter (...), but its purpose is the opposite:
-  - Rest Parameter collects, when at the end of the function.
-  - Spread Operator expands _occurs in a function call_.
+
+
+It looks the same as the rest parameter (...), but its purpose is the opposite:
+  Rest Parameter collects, when at the end of the function.
+  Spread Operator expands _occurs in a function call_.
   </div>
   </div>
 
-<p v-click="3" class="-mt-4">
-
-- Similaries include; Used to clone iterate data structures .eg strings, objects, arrays - uses `...`
-</p>
+<div v-click="3" class="-mt-4">Similaries include; Used to clone iterate data structures .eg strings, objects, arrays - uses <pre>...</pre></div>
 
 ---
 

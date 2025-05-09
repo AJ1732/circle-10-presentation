@@ -1,10 +1,16 @@
 # Month 1 Week 4
 
-<br />
+<style>
+  h1 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
 
-<h2>This is AJ's Slide</h2>
+---
 
-<br />
+## Document Object Model
 
 ```javascript
 const element = document.getElementById("text");
