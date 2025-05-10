@@ -24,7 +24,7 @@
 
 ---
 
-# Bundlers
+## Bundlers
 
 Bundlers are tools that help us convert modules with dependencies into static assets (HTML, CSS, and JS).
 
@@ -52,7 +52,7 @@ Bundlers are tools that help us convert modules with dependencies into static as
 
 ---
 
-# Lazy Loading
+## Lazy Loading
 
 Lazy loading is a feature supported by Webpack that delays loading of modules until they're needed. It helps improve performance by reducing the initial load size. Lazy-loaded modules are also cached by default.
 
