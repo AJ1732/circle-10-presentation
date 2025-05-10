@@ -42,8 +42,8 @@ const makeElement = (elementType, props, children) => {
 | Name           | Type                | Description                                                                                     |
 | -------------- | ------------------- | ----------------------------------------------------------------------------------------------- |
 | `elementType`  | `string`            | Tag name of the element to create (e.g. `"div"`, `"h1"`, `"button"`).                           |
-| `props`        | `object` (optional) | Attributes, properties, and event handlers. To use a one‑time click handler include `once: true`. |
-| `children`     | `Array<Node>`       | An array of child **nodes**—either text nodes (e.g. `"hello"`) or elements via `makeElement`.     |
+| `props`        | `object` (optional) | Attributes, properties, and event handlers. To use a one‑time click handler include `once: true`, `onclick`, `class` |
+| `children`     | `Array<Node>`       | An array of child **nodes**—either text nodes (e.g. `"hello"`) or elements via `makeElement`.      |
 
 
 ---
