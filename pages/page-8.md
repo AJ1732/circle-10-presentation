@@ -30,7 +30,7 @@ class: heading
 
 ---
 
-# Form Examples
+## Form Examples
 
 ```html
 <form id="myForm">

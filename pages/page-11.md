@@ -1,26 +1,89 @@
 # Google Meet Class 1
-Module
-A module is just a file, it can load each other and use special directives ‘export’ and ‘import’ to share functionality. Modularity is a key aspect of large scale software development. It helps to break a program into separate interchangeable components that can be used in different parts of the program. 
-‘Export’ keyword labels variables and functions that should be accessible from outside the current module then ‘import’ allows the usage of the exporter ones in other modules.
-In the tons of script tags, the order is important, one must not be mixed up before the other. We have to specifically name it the same name it was exported with so it can be imported correctly.
-The module is the backbone of how things are done in JavaScript.
-‘as’ is the key thing that helps us to achieve renaming
-‘import *’ means import everything, it imports everything and saves it inside a variable, that variable becomes an object.
+
+<style>
+  h1 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
 
 ---
-To use the default import, we have to use the default export. 
-The key word for default export is ‘export default’
-The default import can have any name, because it is default, it will automatically just assign whatever function or variable is coming.The difference between default and import * is that default just exports the particular thing you put export default in, while import * will take all the thing you are exporting and put it inside of an object so we can use them.
-import maps allows us put JSON file inside a script and then use it. It allows us to map JSON to a particular import. We can import from HTTP URLs and data URLs. Dynamic imports is an import that looks like a function. It’s key goal is to give us the ability to import when we need to. It returns a function which is a promise based function. It allows loading ECMA script module asynchronously and dynamically into a potentially non-module environment. Dynamic import will only import when you need it, it is much more specific and will only run when you get to that particular line and it has to be ‘awaited’ before you can use it. It serves a much more amazing purpose than ordinary imports, put it as close as possible to where you want to use it.
+
+## Module
+
+A **module** is just a file. Modules can load one another and use special directives like `export` and `import` to share functionality. Modularity is a key aspect of large-scale software development, as it helps break a program into separate, interchangeable components that can be reused in different parts of the program.
+
+- The `export` keyword labels variables and functions that should be accessible outside the current module.
+- The `import` keyword allows the use of exported content in other modules.
+
+When using multiple script tags, **order is important** — one script must not be loaded before another if it depends on it. Exports must be named exactly as they were declared to ensure they import correctly.
+
+Modules are the **backbone** of how things are done in modern JavaScript.
+
+### Additional Notes
+
+- `as` helps to **rename** imported bindings.
+- `import * as name` imports **everything** from a module and stores it in an object called `name`.
 
 ---
-Bundlers
-‘NVM’ allows use of multiple versions at the same time.
-‘npm init’ is a way to create a JavaScript project. JavaScript project have some identity that should show us what we do, we should see a package.JSON file in the code base.
-A faster way is ‘npm init -y’
-Or ‘npm init —yes’. The ES model can not work with npm packages that you install on your computer so it needs the bundler to help it be able to process that kind of npm packages. The browser needs something to package everything together and just give the browser what it understands since they can not do so much, we then employ the service of a bundler to do this. We can import ‘png’ or ‘svg’ because of bundlers, they become the level ground for all of us so things not available available in the browser but needed will be created by them.
+
+### Default Import/Export
+
+To use a **default import**, there must be a corresponding `export default` in the module.
+
+- `export default`: Defines the default export of a module.
+- The default import can have **any name**, since it's implicitly understood by the module system.
+
+**Key Difference**:
+
+- `export default`: Exports a single value.
+- `import * as obj`: Imports all named exports into an object.
 
 ---
-npm init -y: Creates package.json, defining the project’s identity and dependencies.
-Bundler (Vite): Bundles main.js, processes the npm package, and handles PNG/SVG imports, making them browser-compatible.
-ES Modules: Uses import/export with ‘type="" ‘ in the <script> tag, relying on Vite to resolve dependencies.
+
+### Import Maps & Dynamic Imports
+
+- **Import maps** allow you to map a module specifier to a specific URL or path, including JSON and external URLs.
+- **Dynamic imports** (`import()`):
+  - Look like functions but return **Promises**.
+  - Allow modules to be loaded **asynchronously and conditionally**.
+  - Only import the module **when needed**.
+  - Must be `await`ed before use.
+  - Are great for optimizing performance by reducing initial load time.
+
+> Tip: Place dynamic imports **as close as possible** to where they are used.
+
+---
+
+## Bundlers
+
+- **NVM**: Allows managing multiple Node.js versions.
+- `npm init`: Initializes a JavaScript project by creating a `package.json` file.
+  - `npm init -y` or `npm init --yes`: Quickly creates `package.json` with default values.
+
+---
+
+### Why We Need Bundlers
+
+The **ES Module** system cannot handle certain npm packages directly in the browser. Browsers have limited support for advanced module resolution and cannot understand many file types.
+
+This is where **bundlers** (e.g., Vite, Webpack, Parcel) come in:
+
+- They **bundle and compile** everything into a format the browser can understand.
+- Enable importing of non-JavaScript assets like `.png`, `.svg`, and more.
+- Make modern JavaScript development practical and scalable.
+
+---
+
+### Summary
+
+- `npm init -y`: Quickly sets up `package.json`.
+- **Bundler (e.g., Vite)**:
+  - Bundles `main.js` and processes all dependencies.
+  - Handles imports like `.png`, `.svg`.
+  - Makes everything browser-compatible.
+- **ES Modules**:
+  - Use `import/export`.
+  - Add `type="module"` in the `<script>` tag for proper usage.
+  - Rely on the bundler to resolve paths and dependencies.

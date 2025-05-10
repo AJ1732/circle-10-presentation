@@ -1,5 +1,16 @@
 # Month 1 Week 2
-Callbacks
+
+<style>
+  h1 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+---
+
+## Callbacks
 A callback is a function that is to be called again even though it is a function itself, but there must another function to be called back. The ‘again’ is the secret to callbacks
 The parameters inside a function are not keywords but variables that represent what will be passed nto the function. 
 In JavaScript, reduced method can accept 4 parameters. Callbacks have a signature which is a syntax that tells us an example of how we can use them.
@@ -28,7 +39,8 @@ We can access the members of our object through ‘.’ notation or ‘[]’ not
 The addEventListener method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with ‘removeEventListener’. It is a DOM property cos we can add ‘.’ to it.
 ‘getData is a function that has 2 callbacks; it accepts data and it accepts an error.
 
-```js const button = document.getElementById("myButton");
+```js 
+const button = document.getElementById("myButton");
 button.addEventListener("click", function() {
     console.log("Button clicked!");
 });
@@ -37,6 +49,7 @@ button.addEventListener("click", function() {
 ```html
 <button id="myButton">Click Me!</button>
 ```
+
 ---
 
 A promise is an object that represents a future result of an asynchronous operation. Difference between a callback and a promise is that callback happens when it happens but with promise, it is a future that we don’t know
