@@ -71,20 +71,6 @@ Lazy loading is a feature supported by Webpack that delays loading of modules un
 
 ---
 
-### Dynamic Import Example
-
-``` js
-async function main() {
-  let sumModule = await import('/sum.js');
-  console.log(sumModule.default(2, 5));
-  
-  todoForm.addEventListener("submit", todoSubmitHandler);
-}
-main();
-```
-
----
-
 ## How to Use Vite
 > 1. Create your folder using using mkdir "folder name"
 > 2. Create a package.json
