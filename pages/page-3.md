@@ -82,8 +82,9 @@ console.log(arr1); // Output: ['a', 'b', 'c'];
 function printAfter2(first, second, ...rest) {
   console.log(rest);
 }
-printAfter2("Musa");
-// Output: ["Musa"]
+printAfter2("Abigail", "Benedict", "Musa", "Deborah");
+// Output: ["Musa", "Deborah"]
+
 ```
 
   </div>

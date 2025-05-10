@@ -17,7 +17,7 @@ In JavaScript, reduced method can accept 4 parameters. Callbacks have a signatur
 
 ```js
 function greet(name, callback) {
-    console.log('Hello, ${Ooreoluwa!');
+    console.log(`Hello, ${name}!`);
     callback();
 }
 function sayGoodbye() {
@@ -32,12 +32,15 @@ greet("Ooreoluwa", sayGoodbye);
 
 ---
 
-There are 3 ways to create events in JavaScript; HTML attribute, DOM property and addEventListener.
-DOM is the JavaScript representation of your HTML i.e it will extract all the HTML you have on your page and save them into an object so JavaScript can now control the HTML when we write a ‘script.js’. 
-Anytime you have an id element in your HTML, that id automatically becomes a variable that you can use in your JavaScript, id automatically becomes core variables
-We can access the members of our object through ‘.’ notation or ‘[]’ notation
-The addEventListener method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with ‘removeEventListener’. It is a DOM property cos we can add ‘.’ to it.
-‘getData is a function that has 2 callbacks; it accepts data and it accepts an error.
+There are 3 ways to create events in JavaScript; 
+  - HTML attribute, DOM property and addEventListener.
+
+The DOM is JavaScript's object-based representation of your HTML, allowing scripts to control and interact with page elements. HTML IDs become accessible as variables in JavaScript. 
+
+You can access DOM properties using dot (`.`) or bracket (`[]`) notation.
+
+The `addEventListener` method lets you attach multiple event handlers with flexibility and can be removed using `removeEventListener`. 
+
 
 ```js 
 const button = document.getElementById("myButton");
@@ -52,14 +55,13 @@ button.addEventListener("click", function() {
 
 ---
 
-A promise is an object that represents a future result of an asynchronous operation. Difference between a callback and a promise is that callback happens when it happens but with promise, it is a future that we don’t know
-A promise has 3 states; pending, fulfilled or rejected. 
-We create a promise by writing ‘newPromise()’. When declaring a promos, give it 2 functions- a resolve or a rejection. Everything in JavaScript is true except falsey values e.g., null, zero, false itself, NaN, etc
-Fetch is an inbuilt mechanism to communicate with an external resource.
+### Promise
+A promise is an object representing the future result of an asynchronous operation. Unlike callbacks, promises handle future values with defined states: pending, fulfilled, or rejected. Promises are created using `new Promise()` with `resolve` and `reject` functions. In JavaScript, only falsy values like `null`, `0`, `false`, and `NaN` evaluate to false. `fetch` is a built-in method for making external network requests.
+
 
 ```js
 const threePromiseStates = new Promise((resolve, reject) => {
-  console.log("Promise will be FULFILLED");
+  console.log("Promise is PENDING");
   setTimeout(() => {
     const random = Math.random(3);
     if (random > 0.5) {
@@ -72,13 +74,13 @@ threePromiseStates
   .then(result => console.log(result))
   .catch(error => console.error(error));
 ```
+
 ---
 
-Async and await
-By putting async in front of an ordinary function, the function automatically behaves like a promise. It makes the creation of promise very easy to do. 
-The only problem with async and await is that it does not give us a good way to catch errors, in order to do this, we need to write the function again and there must be something called a ‘try’ and ‘catch’ if there is a problem. We also have global await and immediately invoked function condition, IIFC
-promise.all gives all the ability to run 2 promises together, it runs them in a parallel. You can also promisify an existing callback
-A closure is a function that returns a function, it is a function that has memory to remember what is inside of it
+### Async/Await
+
+Using `async` before a function makes it return a promise, simplifying asynchronous code. To handle errors with `async/await`, you need to use `try...catch` blocks. `Promise.all` allows multiple promises to run in parallel. Global `await` and Immediately Invoked Function Expressions (IIFE) are also supported. A closure is a function that remembers the variables from its outer scope, even after that scope has closed.
+
 
 ```js
 function fetchData() {

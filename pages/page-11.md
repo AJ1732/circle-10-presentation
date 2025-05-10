@@ -10,80 +10,86 @@
 
 ---
 
-## Module
+## What is a Module?
 
-A **module** is just a file. Modules can load one another and use special directives like `export` and `import` to share functionality. Modularity is a key aspect of large-scale software development, as it helps break a program into separate, interchangeable components that can be reused in different parts of the program.
+A **module** is just a file that exports functions, objects, or values to be reused elsewhere.
 
-- The `export` keyword labels variables and functions that should be accessible outside the current module.
-- The `import` keyword allows the use of exported content in other modules.
+```js
+// greet.js
+export const greet = () => console.log("Hello!");
+```
 
-When using multiple script tags, **order is important** — one script must not be loaded before another if it depends on it. Exports must be named exactly as they were declared to ensure they import correctly.
+```js
+// main.js
+import { greet } from "./greet.js";
+greet(); // Hello!
+```
 
-Modules are the **backbone** of how things are done in modern JavaScript.
+* `export` makes a value available to other files.
+* `import` brings in functionality from other modules.
 
-### Additional Notes
-
-- `as` helps to **rename** imported bindings.
-- `import * as name` imports **everything** from a module and stores it in an object called `name`.
-
----
-
-### Default Import/Export
-
-To use a **default import**, there must be a corresponding `export default` in the module.
-
-- `export default`: Defines the default export of a module.
-- The default import can have **any name**, since it's implicitly understood by the module system.
-
-**Key Difference**:
-
-- `export default`: Exports a single value.
-- `import * as obj`: Imports all named exports into an object.
+> ✅ Helps break large codebases into manageable pieces.
 
 ---
 
-### Import Maps & Dynamic Imports
+#### 🔁 Default vs Named Exports
 
-- **Import maps** allow you to map a module specifier to a specific URL or path, including JSON and external URLs.
-- **Dynamic imports** (`import()`):
-  - Look like functions but return **Promises**.
-  - Allow modules to be loaded **asynchronously and conditionally**.
-  - Only import the module **when needed**.
-  - Must be `await`ed before use.
-  - Are great for optimizing performance by reducing initial load time.
+```js
+// utils.js
+export default function sayHi() {
+  console.log("Hi!");
+}
+```
 
-> Tip: Place dynamic imports **as close as possible** to where they are used.
+```js
+// main.js
+import sayHi from "./utils.js";
+sayHi(); // Hi!
+```
 
----
+* `export default` allows one default export per file.
+* Default imports can have any name:
 
-## Bundlers
+```js
+import anything from "./utils.js";
+```
 
-- **NVM**: Allows managing multiple Node.js versions.
-- `npm init`: Initializes a JavaScript project by creating a `package.json` file.
-  - `npm init -y` or `npm init --yes`: Quickly creates `package.json` with default values.
-
----
-
-### Why We Need Bundlers
-
-The **ES Module** system cannot handle certain npm packages directly in the browser. Browsers have limited support for advanced module resolution and cannot understand many file types.
-
-This is where **bundlers** (e.g., Vite, Webpack, Parcel) come in:
-
-- They **bundle and compile** everything into a format the browser can understand.
-- Enable importing of non-JavaScript assets like `.png`, `.svg`, and more.
-- Make modern JavaScript development practical and scalable.
+> Use when exporting a **single main function or object**.
 
 ---
 
-### Summary
+#### 📦 Import Maps & Dynamic Imports
 
-- `npm init -y`: Quickly sets up `package.json`.
-- **Bundler (e.g., Vite)**:
-  - Bundles `main.js` and processes all dependencies.
-  - Handles imports like `.png`, `.svg`.
-  - Makes everything browser-compatible.
-- **ES Modules**:
-  - Use `import/export`.
-  - Add `type="module"` in the `<script>` tag for proper usage.
-  - Rely on the bundler to resolve paths and dependencies.
+```js
+// Dynamically import when needed
+button.addEventListener("click", async () => {
+  const module = await import("./math.js");
+  console.log(module.add(2, 3));
+});
+```
+
+* Loads modules **only when needed**.
+* Improves performance by **reducing initial load size**.
+
+> ⚠️ Must use `await` or `.then()` to handle the Promise.
+
+---
+
+#### 🛠 Why Use Bundlers (Vite, Webpack)?
+
+```bash
+npm init -y        # Initialize project
+npm install vite   # Install bundler
+```
+
+```js
+// vite.config.js (example)
+export default {
+  root: "./src",
+};
+```
+
+* Converts ES modules and other assets (`.svg`, `.png`, `.css`) into a format browsers can understand.
+* Solves browser limitations with module resolution.
+
+> 🧠 Think of bundlers as translators between your modern code and the browser.

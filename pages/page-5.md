@@ -21,7 +21,7 @@ A way to build APIs for communication over HTTP.
 - Returns data in JSON or XML.
 
 **Example:**  
-`https://api.example.com/users`
+`https://jsonplaceholder.typicode.com/todos/1`
 
 ---
 
@@ -37,19 +37,17 @@ Usually made through HTTP methods:
 
 You use them when your app needs to read/write data online.
 
----
-
-## What is a POST Request?
-
-A **POST request** is used to **send data to a server**.
-
-- Often used for creating new records
-- Data goes in the **request body**
-- Requires headers (like `Content-Type`)
-
-Used heavily in forms, sign-ups, etc.
 
 ---
+
+## 🔍 GET Request
+
+```js
+fetch('https://api.example.com/users')
+  .then(res => res.json())
+  .then(data => console.log(data));
+```
+<br />
 
 ## Example: POST Request
 
@@ -73,30 +71,7 @@ fetch('https://api.example.com/users', {
 
 ---
 
-## 🔍 GET Request
-
-**GET** is used to **retrieve** data from a server.  
-It **does not** modify anything — just fetches info.
-
-###  Use Case:  
-- Show a list of users  
-- Get details of a product
-
-```js
-fetch('https://api.example.com/users')
-  .then(res => res.json())
-  .then(data => console.log(data));
-```
-
----
-
 ## PUT Request
-
-**PUT** is used to **update** an existing resource.  
-You must send the full updated object.
-
-### Use Case:  
-- Edit a user's profile info
 
 ```js
 fetch('https://api.example.com/users/1', {
@@ -108,15 +83,9 @@ fetch('https://api.example.com/users/1', {
 .then(data => console.log(data));
 ```
 
----
+<br />
 
 ## DELETE Request
-
-**DELETE** is used to **remove** a resource from the server.
-
-### Use Case:  
-- Delete a user account  
-- Remove a post
 
 ```js
 fetch('https://api.example.com/users/1', {
@@ -125,4 +94,3 @@ fetch('https://api.example.com/users/1', {
 .then(() => console.log('User deleted'));
 ```
 
----

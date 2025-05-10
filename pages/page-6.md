@@ -31,55 +31,12 @@
 
 ---
 
-<p>
-  Traversing the DOM Tree is conceptually similar to walking a data‑structure
-  <code>Tree</code>. You start at one node and move to its parent, children, or siblings.
-</p>
-
-<ul>
-  <li><strong>Root to leaf:</strong> Start at <code>document.documentElement</code> and drill down via <code>children</code>.</li>
-  <li><strong>Siblings:</strong> Move sideways using <code>nextSibling</code> / <code>previousSibling</code>.</li>
-  <li><strong>Parent:</strong> Go up via <code>parentNode</code> or <code>parentElement</code>.</li>
-  <li><strong>Finding by ID:</strong> Kick‑off traversal at a specific node with <code>getElementById</code>.</li>
-</ul>
-
----
-
-```js
-// Get a starting element
-const element = document.getElementById("text");
-
-// Traverse to parent
-const parent = element.parentElement;
-console.log("Parent node:", parent);
-
-// Traverse to children
-const firstChild = element.children[0];
-console.log("First child:", firstChild);
-
-// Traverse to siblings
-const next = element.nextElementSibling;
-const prev = element.previousElementSibling;
-console.log("Next sibling:", next, "Previous sibling:", prev);
-
-// Walk entire subtree
-function walk(node) {
-  console.log("Visiting:", node);
-  for (const child of node.children) {
-    walk(child);
-  }
-}
-// start full-tree traversal
-walk(document.body);
-```
-
----
-
 - <strong>Live Selectors (auto‑update):</strong> These are DOM methods that return a <em>live</em> <code>HTMLCollection</code>
 
   they automatically reflect changes in the DOM as elements are added or removed. Examples include:
 
   <ul>
+    <li><code>getElementsById(idName)</code></li>
     <li><code>getElementsByTagName(tagName)</code></li>
     <li><code>getElementsByClassName(className)</code></li>
     <li><code>getElementsByName(name)</code></li>
