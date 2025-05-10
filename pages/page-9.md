@@ -1,8 +1,18 @@
 # Month 2 Week 3
 
-## This is Deborah's Slide
+<style>
+  h1 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+---
 
 ### This week, we learnt how to create a 'JavaScript Project with Vite'
+
+<br />
 
 > - We recapped the last class on modules and branching.  
 > - We reviewed the additions and updates Mariam and Busari made to the Todo App assignment.  
@@ -27,7 +37,18 @@ Bundlers are tools that help us convert modules with dependencies into static as
 >   - **Webpack** – This was the first major innovation in the bundler space.  
 >   - One major challenge with Webpack is that it's complex — however, it's also very flexible.
 
-![Image showing how a bundler works](/webpack.jfif)
+---
+
+![Image showing how a bundler works](/webpack.png)
+
+<style>
+  img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+  }
+</style>
+
 
 ---
 
@@ -38,9 +59,12 @@ Lazy loading is a feature supported by Webpack that delays loading of modules un
 > - Lazy loading is different from conditional rendering.  
 > - It works best when focusing on specific routes or pages.  
 > - It also enables **dynamic import**, where modules are loaded like functions.
+
+---
+
 ### Dynamic Import Example
-```md
-``` js[]
+
+``` js
 async function main() {
   let sumModule = await import('/sum.js');
   console.log(sumModule.default(2, 5));
@@ -65,6 +89,9 @@ Setup *Build Script*
 > - inside the html file do 
 > - html: 5 this will create a boilerplate
 > 7. Test: To start using vite set up **dev script**
+
+---
+
 ```
 "scripts": {
   "dev": "vite",
@@ -83,6 +110,7 @@ To host on services like netlify
 **pnpm uses add while npm uses install**
 
 ---
+
 ## Option 2  To  install **Vite**
 > 1. npm create vite@latest *name of app*
 > Then select framework
