@@ -14,207 +14,156 @@
 ## Summary of DOM Operations this Semester
 
 
-JavaScript. Here's what your presentation includes: ✅ Key DOM Topics Covered:
+<style>
+  h2 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
 
 
 ---
 
-## 1. Searching the DOM
+## 1. Searching & Changing the DOM
 
 ```js
-// Example: find the element with id "app"
-let elem = document.querySelector("#app");
-elem.innerHTML = "<div>Hello world</div>";
-elem.style.color = "red";
-
-// Or you can use the ID directly if assigned to a variable
+const app = document.querySelector("#app");
+app.innerHTML = "<div>Hello world</div>";
 app.style.color = "red";
-app.innerHTML = "<div>Hello</div>";
+
 ```
 
 ---
 
-## 2. Changing the DOM
+## 2. Creating & Appending Elements
 
 ```js
-const elem = document.querySelector("#app");
-elem.innerHTML = `<div>Hello world, update your name</div>`;
+const div = document.createElement("div");
+div.textContent = "Hello world - Setemi";
+app.appendChild(div);
 ```
 
----
-
-## 3. Adding Text Content
-
-```js
-const elem = document.querySelector("#app");
-const newElem = document.createElement("div");
-const textContent = document.createTextNode("Hello world - Setemi");
-newElem.appendChild(textContent);
-elem.appendChild(newElem);
-
-// Add comments:
-const comment = document.createComment("This is a comment");
-elem.appendChild(comment);
-```
-
----
-
-## 4. Removing Nodes
-
-```js
-// Using remove() method to remove. Be careful—remove() deletes the element and its children:
-const elem = document.querySelector("#app");
-elem.remove();
-
-// Wrap children in a span to preserve parts if needed.
-```
-
----
-
-## 5. Updating Text
-
-```js
-// Using operator +=
-const elem = document.querySelector('#app')
-elem.textContent + = 'Updated'
-
-// Using replace
-const newElem = document.createElement("div");
-newElem.textContent = "New Text";
-elem.replaceChild(newElem, elem.firstChild);
-
-
-```
-
----
-
-## 6. Simple Counter with Events
-
-```js
-// Using event and counter to update text/count
-let counter = 0;
-const elem = document.querySelector("#app");
-elem.innerHTML = `
-  <div>Hello ${counter}</div>
-  <button id="update">Update</button>
-`;
-
-update.addEventListener("click", () => {
-  elem.children[0].textContent = `Hello world updated ${counter++}`;
-});
-```
-
----
-
-## 7. Events and Listeners
-
-```js
-// There are three ways to event
-// HTML approach, addEventListener approach, dom approach
-function setupCounter(elem) {
-  let counter = 0;
-  const setCounter = (count) => {
-    counter = count;
-    elem.innerHTML = `Counter is ${counter}`;
-  };
-  elem.addEventListener("click", () => setCounter(counter + 1));
-  setCounter(0);
-}
-```
-
----
-
-## 8. Bubbling & Capturing
-
-```js
-//use bubble phase
-const elem = document.querySelector("h1");
-const handler = ()=> alert('click');
-elem.addEventListener('click', handler, { once: true})
-
-
-// use capture phase its a defsault
-function listener(e) {
-  console.log("Click:", e.currentTarget.tagName);
-}
-
-elem.addEventListener("click", listener);
-parent.addEventListener("click", listener);
-grandParent.addEventListener("click", listener);
-
-//enable capture by adding true
-document.querySelectorAll("*").forEach((elem) => {
-  elem.addEventListener("click", listener, { capture: true });
-});
-
-
-
-```
-
----
-
-## 9. Event Delegation
+THE FINAL HTML
 
 ```html
-<ul id="menu">
-  <li>Home</li>
-  <li>About</li>
-</ul>
+<div id="app">
+  <div style="color: red;">Hello World</div>
+  <div>Hello world - Setemi</div>
+</div>
 ```
 
+---
+
+## 3.  Removing & Replacing Nodes
+
 ```js
-// Involves adding single event listen to common parent rather than all
-const menu = document.getElementById("menu");
+const newNode = document.createElement("div");
+newNode.textContent = "New Text";
+app.replaceChild(newNode, elem.firstChild);
+
+```
+
+
+FINAL HTML
+```html
+<div id="app">
+  <div>New Text</div>
+  <div>Hello world - Setemi</div>
+</div>
+
+```
+
+Then to remove the app element
+```js
+app.remove(); // removes the element entirely
+```
+
+
+---
+
+## 4.  Handling Events & Updating DOM
+
+```js
+
+const app = document.getElementById("counter");
+const update = document.getElementById("update"); // tHis is a button
+
+
+let counter = 0;
+update.addEventListener("click", () => {
+  app.children[0].textContent = `Updated ${counter++}`;
+});
+
+```
+
+---
+
+## 5. Event Bubbling & Capturing
+
+When an event is triggered, it moves in two phases—capturing (from top to target) and bubbling (from target to top). You can listen to events in either phase using the capture option.
+
+```js
+// This listener will fire during the bubbling phase (default)
+elem.addEventListener("click", listener);
+
+// This one will fire during the capturing phase (top-down)
+parent.addEventListener("click", listener, { capture: true });
+
+```
+
+---
+
+## 6.  Event Delegation
+
+Rather than attaching event listeners to each individual child element, event delegation attaches one listener to a common ancestor and checks the target.
+
+```js
 menu.onclick = function (event) {
-  const target = event.target;
-  if (target.tagName != "LI") {
-    console.log(target.innerHTML);
+  // Only respond if the clicked element is a <li>
+  if (event.target.tagName === "LI") {
+    console.log(event.target.innerHTML);
   }
 };
+
+
 ```
 
 ---
 
-## 10. Prevent Default & Stop Propagation
+## 7. Prevent Default & Custom Events
+
+Explanation:
+
+preventDefault() stops the browser’s default behavior (e.g., form submission or right-click menu).
+
+stopPropagation() prevents the event from bubbling further.
+
+You can also dispatch custom events using the Event constructor.
 
 ```js
-// To prevent the default behaviour 
-document.querySelector("h1").oncontextmenu = function (e) {
+// Prevent right-click menu and stop bubbling
+elem.oncontextmenu = function (e) {
+  e.preventDefault(); 
   e.stopPropagation();
-  e.preventDefault();
 };
-```
 
----
-
-## 11. Dispatching Custom Events
-
-```js
-// Away to ctreate our custom event 
-const hello = new Event("hello", {
-  bubbles: true,
-  cancelable: true,
-});
-
-elem.addEventListener("hello", function (event) {
-  alert("Hello from: " + event.target.tagName);
-});
-
+// Create and dispatch a custom event named 'hello'
+const hello = new Event("hello", { bubbles: true });
 elem.dispatchEvent(hello);
+
 ```
 
 ---
 
-## 12. Event Object Details
+## 8.  Event Object
+When an event occurs, the browser creates an event object with useful data like the mouse position or event phase. You can access this object inside your event handler.
 
 ```js
-//When event happen browser create details and put in it pass it as agument to handler
-const elem = document.querySelector("h1");
-
-elem.addEventListener("click", function (event) {
-  console.log(event.currentTarget); // Current element
-  console.log(event.eventPhase); // Capturing/Bubbling
-  console.log(event.clientX, event.clientY); // Mouse coordinates
+elem.addEventListener("click", (event) => {
+  console.log("X:", event.clientX, "Y:", event.clientY); // Mouse coordinates
+  console.log("Target:", event.currentTarget); // The element that handled the event
+  console.log("Phase:", event.eventPhase); // 1 (Capturing), 2 (Target), 3 (Bubbling)
 });
-```
 
+```

@@ -8,19 +8,28 @@
   }
 </style>
 
+
 ---
 
-### This week, we learnt how to create a 'JavaScript Project with Vite'
+### 🚀 JavaScript Project with Vite – Summary
 
-<br />
+  * `Named Export`: 
+  ```js 
+  export const namedFunction = () => {}` → `import { fn }
+  ```
+  * `Default Export`: 
+  ```js
+  export default defaultFunction` → `import fn
+  ```
+  * `Namespace Import`: 
+  ```js
+  import * as name from "./file"
+  ```
+  * `Dynamic Import`: 
+  ```js
+  import("./file").then(...)
+  ```
 
-> - We recapped the last class on modules and branching.  
-> - We reviewed the additions and updates Mariam and Busari made to the Todo App assignment.  
-> - We revisited how to import modules:  
->   1. Named Export  
->   2. Default Export  
->   3. Namespace Import  
->   4. Dynamic Import  
 
 ---
 
@@ -101,9 +110,8 @@ Setup *Build Script*
 ```
 
 > 8. Then in the terminal run
-> - npm run
 > - then **npm run dev** and click on the link of the local host
-** When using vire you no longer need **live server**
+** When using vite you no longer need **live server**
 To host on services like netlify
 > - **do npm run build**
 > Then **vite preview** - This is the example of what the code will loke like in production

@@ -70,6 +70,12 @@ src: ./pages/page-8.md
 ---
 transition: slide-up
 
+src: ./pages/page-11.md
+---
+
+---
+transition: slide-up
+
 src: ./pages/page-9.md
 ---
 
@@ -79,11 +85,6 @@ transition: slide-up
 src: ./pages/page-10.md
 ---
 
----
-transition: slide-up
-
-src: ./pages/page-11.md
----
 
 ---
 transition: slide-up

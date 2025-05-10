@@ -63,19 +63,15 @@ const makeElement = (elementType, props, children) => {
 - Children must be passed in an array. You can mix text and elements:
 
 ```js
-const btn = makeElement(
-  "button",
-  { onclick: () => alert("remove"), once: true },
-  ["✕"]    
-);
-```
-
-```js
 const item = makeElement(
   'li', 
   {style: 'display: flex;'},
-  [btn]
+  ["Hello"]
 )
+```
+
+```html
+<li style="display: flex;">Hello</li>
 ```
 
 ---
