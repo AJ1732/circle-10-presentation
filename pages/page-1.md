@@ -9,7 +9,7 @@ Presentation slides
 <div class="abs-br w-full m-6 text-xl">
   <script setup>
     const teamMembers =
-     ["Osezele Ejemen Iboi", "Ibraheem Abdulrahman", "Akangbe, Ooreoluwa Patience", "Abdullahi Abdulkadir", "Ezeagu Chiamaka Vanessa", "Okolo Deborah"]
+     ["Osezele Ejemen Iboi", "Ibraheem Abdulrahman", "Akangbe, Ooreoluwa Patience", "Abdullahi Abdulkadir", "Folorunso Bisola Anikeoluwa", "Okolo Deborah"]
   </script>
 
   <ul class="flex flex-wrap justify-center items-center gap-4">

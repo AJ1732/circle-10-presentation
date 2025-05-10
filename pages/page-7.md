@@ -1,34 +1,20 @@
 
-## Month 2 Week 1 
-# Summary of DOM Operations this Semester
+# Month 2 Week 1 
+
+<style>
+  h1 {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
+---
+
+## Summary of DOM Operations this Semester
 
 
 JavaScript. Here's what your presentation includes: ✅ Key DOM Topics Covered:
-
-Searching the DOM
-
-Changing the DOM
-
-Adding Text Content
-
-Removing Nodes
-
-Updating Text
-
-Creating a Counter with Events
-
-Event Handling (3 types)
-
-Bubbling and Capturing
-
-Event Delegation
-
-Preventing Default & Stopping Propagation
-
-Dispatching Custom Events
-
-Inspecting Event Object Properties
-
 
 
 ---
@@ -232,6 +218,3 @@ elem.addEventListener("click", function (event) {
 });
 ```
 
----
-
-## Thank You!
