@@ -17,7 +17,7 @@ it creates an element, applies props (including one‑time event listeners), and
 
 ```js
 const makeElement = (elementType, props, children) => {
-  const element = document.createElement(elemeType);
+  const element = document.createElement(elementType);
 
   if (props) {
     for (const [key, value] of Object.entries(props)) {
@@ -78,3 +78,64 @@ const item = makeElement(
 )
 ```
 
+---
+
+### Simpler `makeElement()` function
+
+```js
+const mk = (elementType, props, children) => {
+  const el = document.createElement(elementType);
+
+  if (props) Object.assign(el, props)
+  if (children) element.prepend(...children);
+
+  return element;
+};
+```
+
+---
+
+Creating an app
+
+```js 
+mk("div", { id: "app" }, [
+  mk("form", null, [
+    mk("input"),
+    mk("button", { onclick: createTodo }, ["Add Todo"]),
+  ]),
+  mk("ul", { style: "padding: 5px;" })
+])
+```
+
+The HTML
+
+```html
+<div id="app">
+  <form>
+    <input />
+    <button onclick="createTodo()">Add Todo</button>
+  </form>
+  <ul style="padding: 5px;"></ul>
+</div>
+```
+
+---
+
+Bring it all together to React
+
+```js
+const App = () => {
+  return React.createElement(
+    "div", 
+    { id: "app" }, 
+    React.createElement(
+      "form", 
+      { onSubmit: createTodo }, 
+      React.createElement("input"),
+      React.createElement("button", { onclick: createTodo }, "Add Todo"),
+    ),
+    React.createElement("ul", { style: { padding: "5px" } })
+)
+}
+
+```
