@@ -24,4 +24,3 @@ Or ‘npm init —yes’. The ES model can not work with npm packages that you i
 npm init -y: Creates package.json, defining the project’s identity and dependencies.
 Bundler (Vite): Bundles main.js, processes the npm package, and handles PNG/SVG imports, making them browser-compatible.
 ES Modules: Uses import/export with ‘type="" ‘ in the <script> tag, relying on Vite to resolve dependencies.
-
